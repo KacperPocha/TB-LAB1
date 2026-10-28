@@ -52,7 +52,6 @@ class Blockchain:
 if __name__ == "__main__":
   bc = Blockchain()
 
-  # Zadanie 2.2: Dodanie co najmniej 3 bloków z transakcjami
   bc.add_block(["Alice -> Bob: 50 PLN"])
   bc.add_block(["Bob -> Carol: 2 PLN"])
   bc.add_block(["Janusz -> Andrzej: 13 PLN"])
@@ -62,7 +61,6 @@ if __name__ == "__main__":
     print(json.dumps(block, indent=2, ensure_ascii=False))
     print("hash:", Blockchain.hash(block))
 
-  # Weryfikacja stanu początkowego
   valid, invalid_index = bc.is_chain_valid()
   print(f"Czy łańcuch jest poprawny?: {valid} (Niepoprawny blok: {invalid_index})\n")
 
@@ -98,7 +96,7 @@ if __name__ == "__main__":
   print("=" * 60)
   print("EKSPERYMENT: USUNIĘCIE sort_keys=True I ZMIANA KOLEJNOŚCI PÓŁ")
 
-  # Funkcja generująca skrót BEZ sortowania kluczy
+
   def hash_without_sort(block):
     return hashlib.sha256(json.dumps(block).encode()).hexdigest()
 
